@@ -1,0 +1,205 @@
+<script>
+        $(document).ready(function() {
+            function formateT(params) {
+                let result = params < 10 ? "0" + params : params;
+                return result;
+            }
+
+            const getTodayStartTime = () => {
+                const now = new Date();
+                now.setHours(0, 0, 0, 0);
+                return now.getTime();
+            };
+
+            let current = $("#tier_picker_btn .default").text();
+            let startDate = getTodayStartTime();
+            let filterType = "All";
+            let page = 1;
+            let limit = 10;
+            let totalPages = 0;
+
+            let swiper = new Swiper(".van-picker-column", {
+                // on: {
+                //    slideChange: function () {
+                //       level=this.activeIndex.toString()
+                //    },
+                // },
+                slidesPerView: 5,
+                direction: "vertical",
+                centeredSlides: true,
+                clickable: true,
+            });
+
+            $("#tier_picker_btn").click(function() {
+                $("body").addClass("van-overflow-hidden");
+                $("#bottom_slider_tier_picker_overlay").fadeIn();
+                $("#bottom_slider_tier_picker").fadeIn();
+
+                current = $("#tier_picker_btn .default").text();
+
+                const index = $("#bottom_slider_tier_picker .van-picker-column__item .van-ellipsis")
+                    .toArray()
+                    .findIndex(item => {
+                        return $(item).text() === current;
+                    });
+                swiper.slideTo(index, 0);
+            });
+
+            $("#bottom_slider_tier_picker .van-picker-column__item").click(function() {
+                const index = $("#bottom_slider_tier_picker .van-picker-column__item")
+                    .toArray()
+                    .findIndex(item => {
+                        return $(item).find(".van-ellipsis").text() === $(this).find(".van-ellipsis").text();
+                    });
+                swiper.slideTo(index, 500, true);
+            });
+
+            $(".cancel").click(function() {
+                $("body").removeClass("van-overflow-hidden");
+                $("#bottom_slider_tier_picker_overlay").fadeOut();
+                $("#bottom_slider_tier_picker").fadeOut();
+            });
+
+            $(".confirm").click(function() {
+                $("#tier_picker_btn .default").text($(".swiper-slide-active .van-ellipsis").text());
+                current = $(".swiper-slide-active .van-ellipsis").text();
+
+                filterType = current;
+                $(".ar-loading-view").fadeIn();
+                loadTransactions(filterType, startDate, 1);
+                $("body").removeClass("van-overflow-hidden");
+                $("#bottom_slider_tier_picker_overlay").fadeOut();
+                $("#bottom_slider_tier_picker").fadeOut();
+            });
+
+            function updatePaginationUI(currentPage, totalPages) {
+                const paginationContainer = $("#pagination");
+                const noMoreData = paginationContainer.empty();
+
+                if (totalPages <= 1) {
+                    paginationContainer.hide();
+                    return;
+                }
+
+                paginationContainer.show();
+
+                function createPageButton(page, label = page, disabled = false) {
+                    const button = $("<button>").text(label).attr("data-page", page).addClass("page-btn").prop("disabled", disabled);
+                    if (page === currentPage) {
+                        button.addClass("active");
+                    }
+                    return button;
+                }
+
+                paginationContainer.append(createPageButton(1, "First", currentPage === 1));
+                paginationContainer.append(createPageButton(currentPage - 1, "Previous", currentPage === 1));
+
+                paginationContainer.append(createPageButton(currentPage + 1, "Next", currentPage === totalPages));
+                paginationContainer.append(createPageButton(totalPages, "Last", currentPage === totalPages));
+
+                $(".page-btn").on("click", function() {
+                    const page = $(this).attr("data-page");
+                    if (page != currentPage) {
+                        $(".ar-loading-view").fadeIn();
+                        loadTransactions(filterType, startDate, page);
+                    }
+                });
+            }
+
+            function timerJoin(params = "", addHours = 0) {
+                let date = "";
+                if (params) {
+                    date = new Date(Number(params));
+                } else {
+                    date = new Date();
+                }
+
+                date.setHours(date.getHours() + addHours);
+
+                let years = formateT(date.getFullYear());
+                let months = formateT(date.getMonth() + 1);
+                let days = formateT(date.getDate());
+
+                let hours = date.getHours() % 12;
+                hours = hours === 0 ? 12 : hours;
+                let ampm = date.getHours() < 12 ? "AM" : "PM";
+
+                let minutes = formateT(date.getMinutes());
+                let seconds = formateT(date.getSeconds());
+
+                return years + "-" + months + "-" + days + " " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+            }
+
+            function loadsData(datas) {
+                let html = datas
+                    .map(data => {
+                        return `
+            <div data-v-9cb7105e="" class="transRecord__container-content__item">
+                     <div data-v-9cb7105e="" class="transRecord__container-content__card">
+                        <div data-v-9cb7105e="" class="transRecord__container-content__card-top card-background">
+                           <h3 data-v-9cb7105e="">${data.name}</h3>
+                        </div>
+                        <div data-v-9cb7105e="" class="transRecord__container-content__card-mid">
+                           <div data-v-9cb7105e="" class="line">
+                              <div data-v-9cb7105e="" class="left">Detail</div>
+                              <div data-v-9cb7105e="" class="right">${data.name}</div>
+                           </div>
+                           <div data-v-9cb7105e="" class="line">
+                              <div data-v-9cb7105e="" class="left">Time</div>
+                              <div data-v-9cb7105e="" class="right">${timerJoin(data.time)}</div>
+                           </div>
+                           <div data-v-9cb7105e="" class="line">
+                              <div data-v-9cb7105e="" class="left">Balance</div>
+                              <div data-v-9cb7105e="" class="right red" style="">₹${data.money}</div>
+                           </div>
+                        </div>
+                        <div data-v-9cb7105e="" class="transRecord__container-content__card-bot"><textarea data-v-9cb7105e="" class="textarea" name="remark" cols="30" rows="10" readonly=""></textarea></div>
+                     </div>
+                  </div>
+            <br>
+        `;
+                    })
+                    .join("");
+
+                $(".transRecord__container-content__item").html(html);
+            }
+
+            function loadTransactions(filterType, startDate, page) {
+                $.ajax({
+                    type: "GET",
+                    url: `/api/webapi/withdraw/transactionRecord?startDate=${startDate}&filterType=${filterType}&page=${page}&limit=${limit}`,
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.data.length > 0) {
+                            updatePaginationUI(response.currentPage, response.totalPages);
+                            loadsData(response.data);
+                        } else {
+                            loadsData([]);
+                            $("#pagination").hide();
+                        }
+                    },
+                });
+                $(".ar-loading-view").fadeOut();
+            }
+            loadTransactions(filterType, startDate, page);
+
+            var date = new Date(startDate);
+            var year = date.getFullYear();
+            var month = ("0" + (date.getMonth() + 1)).slice(-2);
+            var day = ("0" + date.getDate()).slice(-2);
+            var formattedDate = year + "-" + month + "-" + day;
+
+            $("#date_picker").val(formattedDate);
+
+            $("#date_picker").on("change", function() {
+                startDate = moment(this.value).unix();
+                $(".ar-loading-view").fadeIn();
+                loadTransactions(filterType, startDate, 1);
+            });
+
+            $("#date_picker_root").click(function() {
+                $("#date_picker").click();
+            });
+            // Other functions like clipboard and alertMess can remain unchanged
+        });
+    </script>

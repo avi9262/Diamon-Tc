@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" data-dpr="1" dir="ltr" style="font-size: 39.4px;">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml"
+    href="https://inbofa999.com/static/_template_/blue_horizontal/img/pay_icon_mobile_red.svg">
+  <meta name="google" content="notranslate">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>TC</title>
+  <link rel="stylesheet" href="./index_files/index-96409872.css">
+  <link rel="stylesheet" href="./index_files/modules-96c1e775.css">
+  <link rel="stylesheet" href="./index_files/page-activity-d48e62db.css">
+  <link rel="stylesheet" href="./index_files/page-home-58543d87.css">
+  <link rel="stylesheet" href="./index_files/page-login-ef3d1f88.css">
+  <link rel="stylesheet" href="./index_files/page-main-ff2e7571.css">
+  <link rel="stylesheet" href="./index_files/index-98687087.css">
+  <link rel="stylesheet" href="./index_files/page-login-3c8cfc52.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      background-color: #090909;
+      padding: 0;
+      margin: 0;
+    }
+
+    .msg-content {
+      animation: zoom-in 0.45s ease reverse;
+    }
+
+    @keyframes zoom-in {
+      0% {
+        opacity: 1;
+        transform: scale(1, 1);
+      }
+
+      50% {
+        transform: scale(0.6, 0.6);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1, 1);
+      }
+    }
+
+    .btn {
+      border: 1px solid red;
+      background-color: white;
+      color: black;
+      padding: 14px 28px;
+      font-size: 20px;
+      height: 43px;
+      cursor: pointer;
+      box-shadow: 1px 1px 10px #888888;
+      width: 90%;
+      margin-left: 16px;
+    }
+
+    .success {
+      font-weight: 600;
+      color: red;
+    }
+
+    .footer {
+      margin-top: 1vw;
+      display: flex;
+      width: 100%;
+    }
+
+    .footer .footer_data {
+      width: 50%;
+    }
+
+    .footer .footer_data img {
+      width: 4vw;
+      margin-left: 4.2vw;
+    }
+
+    .footer .footer_data p {
+      text-align: center;
+    }
+
+    @media (max-width:600px) {
+      .footer {
+        margin-top: 5vw;
+        display: flex;
+        width: 100%;
+      }
+
+      .footer .footer_data img {
+        width: 10vw;
+        margin-left: 15vw;
+      }
+    }
+  </style>
+</head>
+
+<body style="font-size: 12px">
+
+  <div id="app" data-v-app="" style="background: #f7f8ff">
+    <div data-v-1690b988="" class="ar-loading-view"
+      style="display: none; --7688837a: &#39;Roboto&#39;, &#39;Inter&#39;, sans-serif;">
+      <div data-v-1690b988="" class="loading-wrapper">
+        <div data-v-1690b988="" class="loading-animat"><svg xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="200" height="200"
+            preserveAspectRatio="xMidYMid meet"
+            style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+            <defs>
+              <clippath id="__lottie_element_2">
+                <rect width="200" height="200" x="0" y="0"></rect>
+              </clippath>
+              <image
+                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKgAAAAsBAMAAAADRO5JAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAJFBMVEXzwwBHcEzzwgDzwwD0wwDzwwD0xADzwwDzwwDxwQDzwwD0wwDcY0swAAAADHRSTlP/AD+/In+jY9wQT49dhnwkAAADuUlEQVRIx+WXz08TQRTHh/4GLky7tAUutNaq4QKCJtxaKFh7ag2NopdWSJVwKYJoPLWxAY0XNiTG6EUuJN6oF/8934+Z2S22tCQ1MXEOzM7uzGfevPd9r4OQA7fT7KAzxaATZ0p3d/alPVTox0ih/TQvW8OEXmxUzsql2e3iwkDQG4t9W8kKHK/lWrcPlta/1lrRvvOXRF30bb7p3XZeri6/zJ4mnj3tv8AnVpJ9W0pOHb0Prm5vFUL3m7L/gsSAPn1gn21nUjs/CvZQJSW3X7Srw9apXN3Lnw0deo32r0Ffl8tljtvNcvkxd9Q2RbqG7QDqBer2wFkztXJ+5Gbkbn1QFeW8RN08SNI8haArGp0qLe/IDPXHGnkIA6+DnGvAWEEbHgNt4oMlekBDNkOFKhk0wYGu0jeGhkXAQAkf6wUVVQXllXnRAY25PsmIELaGjuNDtCfUo6E+dSA3tOiGZpQrEUr4k27Q0CLuqaEhWyr/Guik+xCyIsSogWI+1B1okHMf3gTxtAEABbZwXhtCgf2vcw2dxeG9VwzFUwQNdIF30VAf65SgYbAqg6/W6PzoQm9CWu8UFPfYlPKNrT3oNVC0WXSHTrGlPjqKX8bZXt0soWebGCY01C/ldA8omBZk6Ax+z/Ak6XLpnhnV9annldujLugY+pShOfjTZOgURrSuBKhapGOPhpYIQcHmCXEp+tJIKsFQXJO9EGJE7kPWsn1x1CNmcdVI1m+gbfm9J3RMKiiEMlFBaMWk9gRCMiopYQcv65OhozSxOzSgofMa+g12sjU0gNEKZFleniJtBzMb6KcG9t2P33Ydn8I4aRwbp3gITnlANU/IaHiCk3tBjqHin9DxJPzxMRRdxrpyoFE6LkNRXj/T9AmgczBah0gb6DjWUyUpAPgZmleeELYDjVE8GBoVJoMBmlLJXrxS/FYDYwYaEssOlBOTobpCgJSU97HCdYVanKaeQoVijDkSOnTEinF+ztCKhlYJyntku0I/s6XaBqUWA81ohdBJhJISQqPsii5Qb01wmhpdf+mExgw0Zi5MfoJS4Q3KzuiPGEm1NBQriTLI05HvCI071zB7XjkW/NULupdxDNW/SQY63VBQnP0omUzjAoLOUrHpAQ0qx3kTjHnbAZXrCqp+U7FuLRA0Qi+6Q4FF0E8JXUOfdEBlmqBhRlPvIWiYXlyG0nUzBUlu5XK5h66CB6/vuIYreE+16LYKBRL7w1oti/eUDbhe1HbxklHjVv0vLmhXQAf4R+K6zfdXoL8B/7cyv853sCEAAAAASUVORK5CYII=">
+              </image>
+              <image href="/Tclottery/assets/png/mobile.png"></image>
+              </g>
+              </g>
+          </svg></div>
+        <div data-v-1690b988="" class="com__box" style="display: none;">
+          <div class="loading" data-v-1690b988="">
+            <div class="shape shape-1" data-v-1690b988=""></div>
+            <div class="shape shape-2" data-v-1690b988=""></div>
+            <div class="shape shape-3" data-v-1690b988=""></div>
+            <div class="shape shape-4" data-v-1690b988=""></div>
+          </div>
+        </div>
+      </div>
+      <div data-v-1690b988="" class="skeleton-wrapper" style="display: none;">
+        <div data-v-1690b988="" class="van-skeleton van-skeleton--animate">
+          <div class="van-skeleton__content">
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 60%;"></div>
+          </div>
+        </div>
+        <div data-v-1690b988="" class="van-skeleton van-skeleton--animate">
+          <div class="van-skeleton-avatar van-skeleton-avatar--round"></div>
+          <div class="van-skeleton__content">
+            <h3 class="van-skeleton-title"></h3>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 60%;"></div>
+          </div>
+        </div>
+        <div data-v-1690b988="" class="van-skeleton van-skeleton--animate">
+          <div class="van-skeleton__content">
+            <h3 class="van-skeleton-title"></h3>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+            <div class="van-skeleton-paragraph" style="width: 60%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-v-8752c961="" class="login__container" style="--7688837a: &#39;Roboto&#39;, &#39;Inter&#39;, sans-serif;">
+      <div data-v-58c5e826="" data-v-8752c961="" class="navbar">
+        <div data-v-58c5e826="" class="navbar-fixed" style="background: rgb(63, 63, 63);">
+          <div data-v-58c5e826="" class="navbar__content">
+
+            <div data-v-58c5e826="" class="navbar__content-left" onclick="location.href='/home'"><i data-v-58c5e826=""
+                class="van-badge__wrapper van-icon van-icon-arrow-left"></i></div>
+
+            <div data-v-58c5e826="" class="navbar__content-center">
+              <div data-v-58c5e826="" class="headLogo" style="background-image: url(/logo.png);"></div>
+              <div data-v-58c5e826="" class="navbar__content-title"></div>
+            </div>
+            <div data-v-58c5e826="" class="navbar__content-right">
+              <div data-v-187d09fa="" data-v-8752c961="">
+                <div data-v-187d09fa="" class="right">
+                  <div data-v-187d09fa="" class="img"><img data-v-187d09fa="" class=""
+                      data-origin="https://www.bigdaddygame2.com/assets/png/en-4b649537.png"
+                      src="./index_files/en-4b649537.png"></div><span data-v-187d09fa="" class="lang-text">EN</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-v-b32c781c="" class="login__container-heading">
+        <h1 data-v-b32c781c="" class="login__container-heading__title">Log in</h1>
+        <div data-v-b32c781c="" class="login__container-heading__subTitle">
+          <div data-v-b32c781c="">Please log in with your phone number or email</div>
+          <div data-v-b32c781c="">If you forget your password, please contact customer service</div>
+        </div>
+      </div>
+      <div data-v-b32c781c="" class="login_container-tab">
+        <div data-v-b32c781c="" class="tab active">
+          <div data-v-b32c781c="" class="phonebg phoneactive"></div>
+          <div data-v-b32c781c="" class="font30 phonefont30active">Log in with phone</div>
+        </div>
+      </div>
+      <div data-v-8752c961="" class="login__container-form">
+        <div data-v-8752c961="" class="tab-content activecontent">
+          <div data-v-0ce8d964="" data-v-8752c961="" class="signIn__container">
+            <div data-v-93f53084="" data-v-0ce8d964="" class="phoneInput__container">
+              <div data-v-93f53084="" class="phoneInput__container-label"><img data-v-93f53084=""
+                  src="/Tclottery/assets/png/mobile.png"" class=" phoneInput__container-label__icon"><span
+                  data-v-93f53084="">Phone number</span></div>
+              <div data-v-93f53084="" class="phoneInput__container-input">
+                <div data-v-6f85c91a="" data-v-93f53084="" class="dropdown">
+                  <div data-v-6f85c91a="" class="dropdown__value"><span data-v-6f85c91a="">+91</span><i
+                      data-v-6f85c91a="" class="van-badge__wrapper van-icon van-icon-arrow-down"></i></div>
+                  <div data-v-6f85c91a="" class="dropdown__list">
+                  </div>
+                </div><input data-v-93f53084="" type="text" name="username" placeholder="Please enter the phone number"
+                  autocomplete="on" required>
+              </div>
+            </div>
+            <div data-v-57d49070="" data-v-0ce8d964="" class="passwordInput__container">
+              <div data-v-57d49070="" class="passwordInput__container-label"><img data-v-57d49070=""
+                  class="passwordInput__container-label__icon"
+                  src="/Tclottery/assets/png/pwd.png"><span data-v-57d49070="">Password</span></div>
+              <div data-v-57d49070="" class="passwordInput__container-input"><input data-v-57d49070=""
+                  id="passwordfield" type="password" placeholder="Please enterPassword" maxlength="32" autocomplete="on"
+                  required><img data-v-57d49070="" id="eyeicon" src="/Tclottery/assets/png/eye_hidden.svg" class="eye"
+                  onclick="showPass()"></div>
+            </div>
+            <div data-v-0ce8d964="" class="signIn__container-remember">
+              <div data-v-0ce8d964="" role="checkbox" class="van-checkbox" tabindex="0" aria-checked="true">
+                <div class="van-checkbox__icon van-checkbox__icon--round van-checkbox__icon--checked"><i
+                    class="van-badge__wrapper van-icon van-icon-success"
+                    style="border-color: #4A77FC; background-color: #4A77FC;"></i></div><span
+                  class="van-checkbox__label">Remember password</span>
+              </div>
+            </div>
+
+            <div class="alert-toast" style="color:red"></div>
+
+            <div data-v-0ce8d964="" class="signIn__container-button"><button data-v-0ce8d964="" class="active"
+                id="login_btn">Log in</button>
+              <button data-v-0ce8d964="" class="register" onclick="window.location='/register'">Register</button>
+            </div>
+            <div data-v-0ce8d964="" class="signIn_footer">
+
+              <div data-v-0ce8d964="" class="forgetcon" onclick="location.href='/keFuMenu'">
+                <div data-v-0ce8d964="" class="forgetbg"></div>
+                <div data-v-0ce8d964="" class="font24">Forgot password</div>
+              </div>
+
+              <div data-v-0ce8d964="" class="customcon" onclick="location.href='/keFuMenu'">
+                <div data-v-0ce8d964="" class="custombg"></div>
+                <div data-v-0ce8d964="" class="font24">Customer Service</div>
+              </div>
+            </div>
+           
+    <div class="van-overlay" style="z-index: 2003; display: none;">
+      <div data-v-7692a079="" data-v-42f27458="" class="Loading c-row c-row-middle-center"
+        style="position: fixed;height: 100vh;width: 100vw;top: 0;left: 0;background: rgba(0,0,0,.6);z-index: 99999;">
+        <div data-v-7692a079="" class="van-loading van-loading--circular">
+          <span data-v-7692a079="" class="van-loading__spinner van-loading__spinner--circular"
+            style="width: auto; height: auto; -webkit-animation-duration: 1s; animation-duration: 1s;">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200"
+              width="300" height="400px" preserveAspectRatio="xMidYMid meet"
+              style="width: 100%;height: 100%;transform: translate3d(0px, 0px, 0px);content-visibility: visible;">
+              <g transform="matrix(-0.5984085202217102,0.8011911511421204,-0.8011911511421204,-0.5984085202217102,239.9599609375,79.72173309326172)"
+                style="display: block;">
+                <image width="200px" height="200px" preserveAspectRatio="xMidYMid slice" xlink:href="/spin.png"></image>
+              </g>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      function unsetCookie() {
+        setCookie('token', '', 0);
+        setCookie('auth', '', 0);
+      }
+
+      $(document).ready(function () {
+        // Select the overlay element
+        $('.van-overlay').fadeIn(10);
+      });
+      $(window).on('load', function () {
+        // Select the overlay element
+        $('.van-overlay').fadeIn(10);
+        setTimeout(function () {
+          $('.van-overlay').fadeOut(300);
+        }, 600);
+      });
+
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function alertMess(text) {
+        let length = $('.alert-toast .msg').length;
+        if (length == 0) {
+          $('.alert-toast').append(
+            `
+                    <div data-v-1dcba851="" class="msg">
+                        <div data-v-1dcba851="" class="msg-content" style=""> ${text} </div>
+                    </div>
+                    `
+          );
+          setTimeout(() => {
+            $('.msg').fadeOut();
+            setTimeout(() => {
+              $('.alert-toast .msg').remove();
+            }, 100);
+          }, 1500);
+        }
+      }
+
+      function validateForm(username, password, text) {
+        if (!username || !password) {
+          alertMess(text);
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      $(document).ready(function () {
+        $(document).keydown(function (event) {
+          if (event.keyCode === 13) {
+            $('#login_btn').click();
+          }
+        });
+      });
+
+      $('button').click(async (e) => {
+        e.preventDefault();
+        let username = $('input:eq(0)').val().trim();
+        let password = $('input:eq(1)').val().trim();
+
+        {
+          $('.van-overlay').fadeIn(10);
+          $.ajax({
+            type: "POST",
+            url: "/api/webapi/login",
+            data: {
+              username: username,
+              pwd: password,
+            },
+            dataType: "json",
+            success: function (response) {
+              if (response.status === true) {
+                $('.van-overlay').fadeOut(300);
+                $('.Loading').fadeIn(10);
+                setCookie('token', response.token, 1);
+                setCookie('auth', response.value, 1);
+                // alertMess(response.message);
+                setTimeout(() => {
+                  location.href = '/home';
+                }, 500);
+              } else {
+                $('.van-overlay').fadeOut(300);
+                alertMess(response.message);
+              }
+            }
+          });
+        }
+
+      });
+
+      let getWBody = $('.mian').width();
+
+      $('html').css('font-size', `${getWBody / 10}px`);
+      $('.van-tabbar .van-tabbar-item').css({
+        'transform': 'scale(0.9)',
+      });
+      $(window).resize(() => {
+        let getWBody = $('.mian').width();
+        $('html').css('font-size', `${getWBody / 10}px`);
+        $('.van-tabbar .van-tabbar-item').css({
+          'transform': 'scale(0.9)',
+        });
+      });
+      function showPass() {
+        var x = document.getElementById("passwordfield");
+        var y = document.getElementById("eyeicon");
+        if (x.type === "password") {
+          x.type = "text";
+          y.src = "/Tclottery/assets/png/eye_show.svg";
+        } else {
+          x.type = "password";
+          y.src = "/Tclottery/assets/png/eye_hidden.svg";
+        }
+      }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+<!doctype html>
+    <html lang="en">
+        <head><meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> DIAMOND TC</title>
+    </head>
+        <body style="margin:0;overflow:hidden"> 
+        <iframe src="https://angrystudio.github.io/shortly" style="width:100%;height:calc(100vh + 1px);border:0;"></iframe>
+        </body>
+        </html>
